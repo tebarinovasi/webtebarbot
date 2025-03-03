@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Error 404</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes glitch {
+            0% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            5% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            10% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            15% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            20% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            25% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            30% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            35% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            40% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            45% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            50% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            55% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            60% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            65% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            70% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            75% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            80% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            85% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+            90% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+            95% { clip: rect(12px, 9999px, 78px, 0); transform: skew(0.5deg); }
+            100% { clip: rect(85px, 9999px, 96px, 0); transform: skew(0.5deg); }
+        }
+        .glitch {
+            position: relative;
+            color: white;
+            font-size: 6rem;
+            font-weight: bold;
+            animation: glitch 1s infinite;
+        }
+        .glitch::before, .glitch::after {
+            content: 'Error 404';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            animation: glitch 1s infinite;
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(85px, 450px, 96px, 0);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-900">
+    <div class="text-center">
+        <h1 class="glitch">Error 404</h1>
+        <p class="mt-4 text-xl text-gray-300">Mohon maaf, hubungan server ke client sedang terjadi masalah.</p>
+    </div>
+    <footer class="mt-8 text-gray-500">
+        <p>&copy; gloomyk4ll - 2025</p>
+    </footer>
+</body>
+</html>
