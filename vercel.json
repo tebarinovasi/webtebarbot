@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/:tebarbot", "destination": "/:tebarbot.html" }
+    { "source": "/:home", "destination": "/:home.html" }
+  ]
+}
