@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lapor Cepat - PPMTB</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Mendefinisikan variabel warna agar konsisten dengan tema */
+    :root {
+        --brand-green: #00DC82;
+        --card-bg: #1F2937;
+        --border-color: #374151;
+        --input-bg: #374151;
+        --text-primary: #FFFFFF;
+        --text-secondary: #9CA3AF;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        /* Menggunakan gambar latar belakang yang sama */
+        background-image: url('/assets/bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Animasi fade-in sederhana */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    /* Kustomisasi placeholder untuk textarea */
+    .custom-placeholder::placeholder {
+        color: var(--text-secondary);
+        opacity: 0.8;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <!-- Overlay gelap untuk meningkatkan kontras -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Kartu Formulir dengan gaya yang diperbarui -->
+  <div class="relative bg-[var(--card-bg)] border border-[var(--border-color)] w-full max-w-md p-8 rounded-2xl shadow-2xl animate-fade-in">
+    
+    <div class="text-center mb-6">
+        <h1 class="text-2xl font-bold text-[var(--text-primary)]">Form Lapor Cepat</h1>
+        <p class="text-[var(--text-secondary)] mt-1">Sampaikan laporan Anda secara langsung.</p>
+    </div>
+    
+    <div class="space-y-4">
+        <div>
+            <label for="laporan" class="block text-[var(--text-secondary)] text-sm font-medium mb-2">Laporan Anda</label>
+            <textarea 
+                id="laporan" 
+                class="w-full h-32 p-3 bg-[var(--input-bg)] border border-[var(--border-color)] rounded-lg text-[var(--text-primary)] text-base focus:ring-2 focus:ring-[var(--brand-green)] focus:border-[var(--brand-green)] focus:outline-none transition duration-200 custom-placeholder" 
+                placeholder="Tuliskan detail laporan Anda di sini..."></textarea>
+        </div>
+        
+        <button 
+            onclick="sendwhatsapp()" 
+            class="w-full bg-[var(--brand-green)] hover:bg-green-500 text-gray-900 font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--card-bg)] focus:ring-[var(--brand-green)]">
+          Kirim Laporan via WhatsApp
+        </button>
+    </div>
+  </div>
+
+  <script>
+    function sendwhatsapp(){
+      var phonenumber = "+6283152217140"; // Nomor tujuan
+      var message = document.getElementById("laporan").value;
+
+      // Validasi sederhana agar pesan tidak kosong
+      if (message.trim() === "") {
+        alert("Mohon isi laporan Anda terlebih dahulu.");
+        return;
+      }
+
+      var url = "https://wa.me/" + phonenumber + "?text=" 
+                + encodeURIComponent("!lapor " + message + "\n\nIzin, terimakasih.");
+      
+      window.open(url, '_blank').focus();
+    }
+  </script>
+
+</body>
+</html>
